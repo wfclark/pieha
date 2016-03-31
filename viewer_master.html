@@ -6,7 +6,7 @@
 <meta charset=utf-8 />
 
 
-<title>Pacific Islands Environmental Hazards Analysis</title>
+<title>PTS</title>
 
 
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
@@ -92,14 +92,13 @@
 
 
 #titleBar_new {
-    color: #765;
-    font-family: 'Lobster Two', Helvetica, sans-serif;
+    color: #404040;
+    font-family: 'Arial', Helvetica, sans-serif;
     font-size: 1.9em;
-    font-weight: bolder;
     letter-spacing: -.5px;
     position:fixed;
     left: 2%;
-    top: 88%;
+    top: 89%;
     
 }
 
@@ -197,7 +196,7 @@ $(document).ready(function() {
 L.mapbox.accessToken = 'pk.eyJ1Ijoid2ZjbGFyazIiLCJhIjoiU1dJakY2VSJ9.y9sbqDVvPJOCv7Sv5k3jZA';
   var map = L.mapbox.map('map', null, {
       maxZoom: 18
-  }).setView([20.3114, 202.5], 8);
+  }).setView([25, -100.37], 2);
 
   var basemaps = {
       Streets: L.mapbox.tileLayer('mapbox.streets'),
@@ -205,86 +204,53 @@ L.mapbox.accessToken = 'pk.eyJ1Ijoid2ZjbGFyazIiLCJhIjoiU1dJakY2VSJ9.y9sbqDVvPJOC
       Satellite: L.mapbox.tileLayer('mapbox.satellite')
       };
 
-  var hazards = { 
+  var levels = { 
 
-   SLR1ft : L.tileLayer.wms('http://ec2-52-36-196-184.us-west-2.compute.amazonaws.com:8080/geoserver/opengeo/wms?', {
+   
+    Amnesty : L.tileLayer.wms('http://ec2-52-36-196-184.us-west-2.compute.amazonaws.com:8080/geoserver/opengeo/wms?', {
         format: 'image/png',
         transparent: true,
         layers: 'opengeo:hislr1'
       }),
   
-      SLR2ft : L.tileLayer.wms('http://ec2-52-36-196-184.us-west-2.compute.amazonaws.com:8080/geoserver/opengeo/wms?', {
+     HRW : L.tileLayer.wms('http://ec2-52-36-196-184.us-west-2.compute.amazonaws.com:8080/geoserver/opengeo/wms?', {
         format: 'image/png',
         transparent: true,
         layers: 'opengeo:hislr2'
       }),
   
-      SLR3ft : L.tileLayer.wms('http://ec2-52-36-196-184.us-west-2.compute.amazonaws.com:8080/geoserver/opengeo/wms?', {
+      USD: L.tileLayer.wms('http://ec2-52-36-196-184.us-west-2.compute.amazonaws.com:8080/geoserver/opengeo/wms?', {
         format: 'image/png',
         transparent: true,
         layers: 'opengeo:hislr3'
-      }),
-  
-      SLR4ft : L.tileLayer.wms('http://ec2-52-36-196-184.us-west-2.compute.amazonaws.com:8080/geoserver/opengeo/wms?', {
-        format: 'image/png',
-        transparent: true,
-        layers: 'opengeo:hislr4'
-      }),
-      
-      hawaii_county_slr2 : L.tileLayer.wms('http://ec2-52-36-196-184.us-west-2.compute.amazonaws.com:8080/geoserver/opengeo/wms?', {
-        format: 'image/png',
-        transparent: true,
-       layers: 'opengeo:hawaii_county_slr1' 
-      }),
-
-
-      hawaii_county_slr2 : L.tileLayer.wms('http://ec2-52-36-196-184.us-west-2.compute.amazonaws.com:8080/geoserver/opengeo/wms?', {
-        format: 'image/png',
-        transparent: true,
-        layers: 'opengeo:hawaii_county_slr2'
-      }),
-      
-      hawaii_county_slr3 : L.tileLayer.wms('http://ec2-52-36-196-184.us-west-2.compute.amazonaws.com:8080/geoserver/opengeo/wms?', {
-        format: 'image/png',
-        transparent: true,
-        layers: 'opengeo:hawaii_county_slr3'
-      }),
-      
-      hawaii_county_slr4 : L.tileLayer.wms('http://ec2-52-36-196-184.us-west-2.compute.amazonaws.com:8080/geoserver/opengeo/wms?', {
-        format: 'image/png',
-        transparent: true,
-        layers: 'opengeo:hawaii_county_slr4'
       })
     };
 
 
-  basemaps.Satellite.addTo(map);
-  L.control.layers(basemaps, hazards).addTo(map);
+  basemaps.Streets.addTo(map);
+  L.control.layers(basemaps, levels).addTo(map);
 
 
 </script>
 
 
 <div id="dialog" title="Summary">
- <p>This is an exposure tool for the state of Hawaii. </p>
-  <p>The purpose of this tool is to show the potential economic impacts from natural disasters. More specifically, the amount of direct economic real estate losses due to an increase in sea level rise. </p>
-  <p>For more information:</p>
-  <p>wfclark2@gmail.com, joebaker808@gmail.com</p>
+ <p>A Web Map for The Political Terror Scale</p>
+ <p>University of North Carolina at Asheville</p>
+ <p>For more information:</p>
+ <p>www.politicalterrorscale.org</p>
+ <p>wclark1@unca.edu, phaschke@unca.edu</p>
 </div>
 
-<div id="dialog1" title="Houses at Potential Risk">
-  <p>Total Exposure In Dollars:</p> 
-  <p> 1FT: $10,218,545,300</p>
-  <p> 2FT: $11,217,629,500</p> 
-  <p> 3FT: $12,793,249,500</p> 
-  <p> 4FT: $19,125,318,900</p> 
+<div id="dialog1" title="Notifications">
+  <p>Suscriber Notifcations on User Selected Points of Interest</p> 
 </div>
 
 <div id="titleBar_new">
-      <h2>The Pacific Islands Environmental Hazards Analysis</h2>
+      <h2>The Political Terror Scale</h2>
         </div>
 <div id="btnSumw" class="btn-large header-bar">
-    <button id="opener1">$</button>   
+    <button id="opener1">!</button>   
 </div>
 
 <div class="btn-large header-bar input">
